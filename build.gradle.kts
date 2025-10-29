@@ -1,4 +1,33 @@
 plugins {
-  id("com.android.application") version "8.6.1" apply false
-  kotlin("android") version "1.9.24" apply false
+  id("com.android.application")
+  kotlin("android")
+}
+
+android {
+  namespace = "com.muse.master"
+  compileSdk = 34
+
+  defaultConfig {
+    applicationId = "com.muse.master"
+    minSdk = 24
+    targetSdk = 34
+    versionCode = 1
+    versionName = "1.0"
+  }
+
+  buildTypes {
+    release {
+      isMinifyEnabled = false
+      proguardFiles(
+        getDefaultProguardFile("proguard-android-optimize.txt"),
+        "proguard-rules.pro"
+      )
+    }
+  }
+}
+
+dependencies {
+  implementation("androidx.core:core-ktx:1.13.1")
+  implementation("androidx.appcompat:appcompat:1.7.0")
+  implementation("com.google.android.material:material:1.12.0")
 }
